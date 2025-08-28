@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./Frontend/inventory_management_system
+    container_name: react_front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+
+  backend:
+    build: ./Backend
+    container_name: node_backend
+    ports:
+      - "3001:3001"
+    environment:
+      - mongoURI= mongodb+srv://dmmadushalw1999:2subr0nbKyxHCZdU@firstcluster.uytooc1.mongodb.net/?retryWrites=true&w=majority&appName=FirstCluster
+
